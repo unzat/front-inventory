@@ -3,8 +3,8 @@
     <mat-card-header>
         <div>
             <mat-form-field hintLabel="Buscar Categoría" appearance="fill">
-                <mat-label>Buscar Categorías</mat-label>
-                <input matInput #input>
+                <mat-label>Buscar Categoría</mat-label>
+                <input matInput #input (keyup)="buscar(input.value)">
             </mat-form-field>
         </div>
     </mat-card-header>
