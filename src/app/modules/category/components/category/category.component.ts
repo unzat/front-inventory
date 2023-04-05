@@ -54,7 +54,24 @@ export class CategoryComponent implements OnInit {
         this.openSnackBar("Categoría Agregada", "Guardado");
         this.getCategories();
       }else if (result == 2){
-        this.openSnackBar("Algo salio mal al guardar la categoria", "Error");
+        this.openSnackBar("Algo salio mal al guardar la categoria", "Error!");
+        this.getCategories();
+      }
+    });
+  }
+
+  edit(id: number, name:string, description:string){
+    const dialogRef = this.dialog.open(NewCategoryComponent, {
+      width: "450px",
+      data: {id: id, name: name, description: description}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == 1) {
+        this.openSnackBar("Categoría Actualizada", "Actualizado");
+        this.getCategories();
+      }else if (result == 2){
+        this.openSnackBar("Algo salio mal al actualizar la categoria", "Error!");
         this.getCategories();
       }
     });
