@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'environments/environment';
+import { environment } from 'src/environments/environment';
 
 
 const base_url = environment.base_url;
@@ -20,5 +20,13 @@ export class CategoryService {
   getCategories() {
     const endpoint = `${base_url}/categories`;
     return this.http.get(endpoint);
+  }
+
+  /**
+   * save categories
+   */
+  saveCategorie(body: any){
+    const endpoint = `${base_url}/categories`;
+    return this.http.post(endpoint, body);
   }
 }
