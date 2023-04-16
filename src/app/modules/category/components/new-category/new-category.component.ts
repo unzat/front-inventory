@@ -39,19 +39,20 @@ export class NewCategoryComponent implements OnInit{
       name: this.categoryForm.get('name')?.value,
       description: this.categoryForm.get('description')?.value
     }
+    console.log(data);
 
-    if (data != null) {
-      this.categoryService.updateCategorie(data, this.data.id)
+    if (this.data != null) {
+      this.categoryService.updateCategory(data, this.data.id)
       .subscribe( (data:any) => {
-        //console.log(data);
+        console.log(data);
         this.dialogRef.close(1);
       }, (error: any) => {
         this.dialogRef.close(2);
       });
     }else{
-      this.categoryService.saveCategorie(data)
+      this.categoryService.saveCategory(data)
       .subscribe( (data:any) => {
-        //console.log(data);
+        console.log(data);
         this.dialogRef.close(1);
       }, (error: any) => {
         this.dialogRef.close(2);

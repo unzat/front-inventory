@@ -86,7 +86,7 @@ export class CategoryComponent implements OnInit {
   delete(id: number) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
       width: "450px",
-      data: {id: id}
+      data: {id: id, module: "category"}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -113,7 +113,7 @@ export class CategoryComponent implements OnInit {
 
   openSnackBar(message: string, action: string):MatSnackBarRef<SimpleSnackBar>{
     return this.snackBar.open(message, action, {
-      duration: 2000
+      duration: 3000
     })
   }
 }

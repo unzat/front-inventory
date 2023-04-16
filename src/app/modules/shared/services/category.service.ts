@@ -25,7 +25,7 @@ export class CategoryService {
   /**
    * save categories
    */
-  saveCategorie(body: any){
+  saveCategory(body: any){
     const endpoint = `${base_url}/categories`;
     return this.http.post(endpoint, body);
   }
@@ -33,7 +33,7 @@ export class CategoryService {
   /**
    * update categories
    */
-  updateCategorie(body: any, id: any) {
+  updateCategory(body: any, id: any) {
     const endpoint = `${base_url}/categories/${id}`;
     return this.http.put(endpoint, body);
   }
@@ -41,7 +41,7 @@ export class CategoryService {
   /**
    * delete categories
    */
-  deleteCategorie(id: any) {
+  deleteCategory(id: any) {
     const endpoint = `${base_url}/categories/${id}`;
     return this.http.delete(endpoint);
   }
