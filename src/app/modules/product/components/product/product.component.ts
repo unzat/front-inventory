@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit{
     if (resp.metadata[0].code == "00") {
       let listProduct = resp.productResponse.product;
       listProduct.forEach((element: ProductElement) => {
-        element.category = element.category.name;
+        //element.category = element.category.name;   
         element.picture = 'data:image/jpeg;base64,'+element.picture;
         dataProduct.push(element)
       });
@@ -60,7 +60,7 @@ export class ProductComponent implements OnInit{
         this.openSnackBar("Producto Agregado", "Guardado");
         this.getProducts();
       }else if (result == 2){
-        this.openSnackBar("Algo salio mal al guardar el productos", "Error!");
+        this.openSnackBar("Algo salio mal al guardar el producto", "Error!");
         this.getProducts();
       }
     });
@@ -68,8 +68,25 @@ export class ProductComponent implements OnInit{
 
   openSnackBar(message: string, action: string):MatSnackBarRef<SimpleSnackBar>{
     return this.snackBar.open(message, action, {
-      duration: 2000
+      duration: 3000
     })
+  }
+
+  edit(id: number, name: string, price: number, quantity: number, category: any){
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      width: "450px",
+      data: {id:id, name:name, price:price, quantity:quantity, category:category}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == 1) {
+        this.openSnackBar("Producto Editado", "Editado");
+        this.getProducts();
+      }else if (result == 2){
+        this.openSnackBar("Algo salio mal al editar el producto", "Error!");
+        this.getProducts();
+      }
+    });
   }
 }
 
