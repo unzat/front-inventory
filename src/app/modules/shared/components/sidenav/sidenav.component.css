@@ -42,4 +42,9 @@ ul li {
 .icono {
     margin-right: 10px;
 }
-  
+
+.username {
+    padding-left: 100px;
+    padding-right: 100px;
+    font-weight: lighter;
+}
