@@ -49,9 +49,24 @@ export class ProductService {
     const endpoint = `${base_url}/products/${id}`;
     return this.http.delete(endpoint);
   }
-
+  
+  /**
+   * get products by name
+   * @param name 
+   * @returns 
+   */
   getProductByName(name: any) {
     const endpoint = `${base_url}/products/filter/${name}`;
     return this.http.get(endpoint);
+  }
+
+  /**
+   * export excel products
+   */
+  exportExcelProducts() {
+    const endpoint = `${base_url}/products/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob'
+    });
   }
 }
