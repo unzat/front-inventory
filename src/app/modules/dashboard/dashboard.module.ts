@@ -9,6 +9,10 @@ import { ProductModule } from '../product/product.module';
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgChartsModule } from 'ng2-charts';
+import { CustomerModule } from '../customer/customer.module';
+import { SupplierModule } from '../supplier/supplier.module';
+import { SaleModule } from '../sale/sale.module';
+import { PurchaseModule } from '../purchase/purchase.module';
 
 
 
@@ -23,6 +27,10 @@ import { NgChartsModule } from 'ng2-charts';
     SharedModule,
     CategoryModule,
     ProductModule,
+    CustomerModule,
+    SupplierModule,
+    SaleModule,
+    PurchaseModule,
     MaterialModule,
     FlexLayoutModule,
     NgChartsModule

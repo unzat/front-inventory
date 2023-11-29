@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>{{estadoFormulario}} Cliente</h2>
+<mat-dialog-content>
+    <form [formGroup]="customerForm">
+        <div class="customer-container">
+            <mat-form-field>
+                <input matInput placeholder="Nombre" formControlName="name" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-select formControlName="documentType">
+                    <mat-option [value]="0">
+                        Cedula de Identidad
+                      </mat-option>
+                      <mat-option [value]="1">
+                        RUC
+                      </mat-option>
+                      <mat-option [value]="2">
+                        Otro
+                      </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Documento" formControlName="document" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Teléfono" formControlName="phone" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Dirección" formControlName="address" required/>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" (click)="onSave()" [disabled]="customerForm.invalid">
+        <mat-icon>save</mat-icon>{{textoBoton}}
+    </button>
+    <button mat-flat-button color="warn" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon>Cancelar
+    </button>
+</mat-dialog-actions>
